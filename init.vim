@@ -50,8 +50,11 @@ autocmd ColorScheme * highlight Error ctermfg=15 ctermbg=52
 autocmd ColorScheme * highlight ErrorMsg ctermfg=15 ctermbg=52
 autocmd ColorScheme * highlight MatchParen cterm=underline ctermbg=9 ctermfg=15
 autocmd ColorScheme * highlight CocHighlightText cterm=underline ctermbg=0
-autocmd ColorScheme * highlight Comment ctermfg=12
-autocmd ColorScheme * highlight Delimiter ctermfg=3
+autocmd ColorScheme * highlight Comment ctermfg=104
+"autocmd ColorScheme * highlight Delimiter ctermfg=180
+autocmd ColorScheme * highlight Delimiter ctermfg=108
+autocmd ColorScheme * highlight link javaScriptBraces Delimiter
+autocmd ColorScheme * highlight link javaScriptParens Delimiter
 autocmd ColorScheme * highlight CocFadeOut cterm=underline ctermbg=11 ctermfg=0
 autocmd ColorScheme * highlight NonText ctermbg=None ctermfg=0 cterm=NONE
 
