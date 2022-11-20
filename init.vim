@@ -11,7 +11,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'feline-nvim/feline.nvim'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
   Plug 'nvim-tree/nvim-web-devicons'
   Plug 'jeffkreeftmeijer/vim-dim'
   Plug 'ntpeters/vim-better-whitespace'
