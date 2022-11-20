@@ -116,13 +116,12 @@ if 0
   set rulerformat+=%p%%
 end
 
-
+" remember cursor position
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
+  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 "set list listchars=tab:▸\ ,nbsp:␣,eol:↴,space:·,extends:#,trail:@
-set list listchars=tab:▸\ ,nbsp:␣,eol:↴,space:·,extends:#
+set list listchars=tab:▸\ ,trail:@
 
 let g:indent_blankline_show_current_context = v:true
 let g:indent_blankline_show_current_context_start = v:true
