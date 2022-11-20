@@ -59,14 +59,24 @@ autocmd ColorScheme * highlight CocFadeOut cterm=underline ctermbg=11 ctermfg=0
 autocmd ColorScheme * highlight NonText ctermbg=None ctermfg=0 cterm=NONE
 
 
+noremap <PageUp> <C-u>
+noremap <PageDown> <C-d>
+inoremap <PageUp> <C-o><C-u>
+inoremap <PageDown> <C-o><C-d>
+cnoremap <PageUp> <C-u>
+cnoremap <PageDown> <C-d>
 
-noremap <ESC>f w
 noremap <ESC>b b
+noremap <ESC>f e
 inoremap <ESC>b <C-o>b
 inoremap <ESC>f <C-o>w
-cnoremap <ESC>f w
-noremap <S-M-Right> W
+cnoremap <ESC>f e
+noremap <S-M-Right> E
 noremap <S-M-Left> B
+inoremap <S-M-Right> <C-o>W
+inoremap <S-M-Left> <C-o>B
+cnoremap <S-M-Right> E
+cnoremap <S-M-Left> B
 
 noremap <C-A> <Home>
 noremap <C-E> <End>
