@@ -60,6 +60,35 @@ autocmd ColorScheme * highlight NonText ctermbg=None ctermfg=0 cterm=NONE
 
 
 
+noremap <ESC>f w
+noremap <ESC>b b
+inoremap <ESC>b <C-o>b
+inoremap <ESC>f <C-o>w
+cnoremap <ESC>f w
+noremap <S-M-Right> W
+noremap <S-M-Left> B
+
+noremap <C-A> <Home>
+noremap <C-E> <End>
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+
+
+" shift+arrow selection
+nmap <S-Up> v<Up>
+nmap <S-Down> v<Down>
+nmap <S-Left> v<Left>
+nmap <S-Right> v<Right>
+vmap <S-Up> <Up>
+vmap <S-Down> <Down>
+vmap <S-Left> <Left>
+vmap <S-Right> <Right>
+imap <S-Up> <Esc>v<Up>
+imap <S-Down> <Esc>v<Down>
+imap <S-Left> <Esc>v<Left>
+imap <S-Right> <Esc>v<Right>
 
 " add a column limit line
 if exists('+colorcolumn') && 0
