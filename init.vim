@@ -6,20 +6,18 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin("~/.vim/plugged")
-  " Plugin Section
-  Plug 'morhetz/gruvbox'
-  Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'feline-nvim/feline.nvim'
-  Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
-  Plug 'nvim-tree/nvim-web-devicons'
-  Plug 'jeffkreeftmeijer/vim-dim'
-  Plug 'ntpeters/vim-better-whitespace'
+	" Plugin Section
+	Plug 'lukas-reineke/indent-blankline.nvim'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'nvim-tree/nvim-web-devicons'
+	Plug 'feline-nvim/feline.nvim'
+	Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
+	Plug 'jeffkreeftmeijer/vim-dim'
+	Plug 'ntpeters/vim-better-whitespace'
 
-  let g:coc_global_extensions = [ 'coc-css', 'coc-highlight', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-phpls', 'coc-syntax', 'coc-ultisnips' ]
+	let g:coc_global_extensions = [ 'coc-css', 'coc-highlight', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-phpls', 'coc-syntax', 'coc-ultisnips' ]
 
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-
+	Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 call plug#end()
 
 
@@ -28,7 +26,6 @@ call plug#end()
 set nocompatible    " Use Vim defaults (much better!)
 set bs=indent,eol,start     " allow backspacing over everything in insert mode
 set ruler       " show the cursor position all the time
-set t_Co=256
 let &showbreak = '» ' " wrap character
 set showcmd " show the command being typed
 set spellsuggest=3 " spelling
@@ -48,7 +45,7 @@ autocmd ColorScheme * highlight SignColumn ctermbg=NONE
 autocmd ColorScheme * highlight Pmenu ctermbg=0 cterm=bold
 autocmd ColorScheme * highlight Error ctermfg=15 ctermbg=52
 autocmd ColorScheme * highlight ErrorMsg ctermfg=15 ctermbg=52
-autocmd ColorScheme * highlight MatchParen cterm=underline ctermbg=9 ctermfg=15
+autocmd ColorScheme * highlight MatchParen cterm=underline ctermbg=2 ctermfg=15
 autocmd ColorScheme * highlight CocHighlightText cterm=underline ctermbg=0
 autocmd ColorScheme * highlight Comment ctermfg=104
 "autocmd ColorScheme * highlight Delimiter ctermfg=180
@@ -57,7 +54,6 @@ autocmd ColorScheme * highlight link javaScriptBraces Delimiter
 autocmd ColorScheme * highlight link javaScriptParens Delimiter
 autocmd ColorScheme * highlight CocFadeOut cterm=underline ctermbg=11 ctermfg=0
 autocmd ColorScheme * highlight NonText ctermbg=None ctermfg=0 cterm=NONE
-
 
 noremap <PageUp> <C-u>
 noremap <PageDown> <C-d>
@@ -100,6 +96,28 @@ imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
 imap <S-Right> <Esc>v<Right>
 
+
+let s:my_noCharsState=1
+
+map Nc NC
+" START NC
+command! NC call MyToggleNoChars()
+function! MyToggleNoChars()
+	if s:my_noCharsState
+  		set nonumber
+  		set nolist
+		set scl=no
+		let &showbreak = ''
+	else
+		set number
+		set list
+		set scl=auto
+		let &showbreak = '» '
+	endif
+	let s:my_noCharsState = !s:my_noCharsState
+endfunction
+" END NC
+
 " add a column limit line
 if exists('+colorcolumn') && 0
   set colorcolumn=81
@@ -139,6 +157,7 @@ let g:indent_blankline_show_trailing_blankline_indent = v:false
 let g:indent_blankline_char_blankline = '│'
 let g:indent_blankline_use_treesitter = v:true
 let g:indent_blankline_show_end_of_line = v:false
+let g:indent_blankline_disable_with_nolist = v:true
 let g:impact_transbg=v:true
 let g:colors_enable=v:true
 let g:strip_whitespace_on_save = 1
